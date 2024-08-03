@@ -1,0 +1,86 @@
+#include<iostream>
+#include<string>
+using namespace std;
+//maximum number of task
+const int MAX_TASKS=100;
+
+//define a structure for tasks
+struct Task
+{
+    string description;
+    bool isDone;
+};
+int main()
+{
+    Task tasks[MAX_TASKS];//array to store tasks
+    //keep track of the number of task
+    int numTasks=0;
+    
+    while(true)
+    {
+        cout<<"to-do list application"<<endl;
+        cout<<"1.Add Task"<<endl;
+        cout<<"2.List TASK"<<endl;
+        cout<<"3.Mark Task as Done"<<endl;
+        cout<<"4.Quit"<<endl;
+        int choice;
+        cin>>choice;
+        if(choice==1)
+        {
+            if(numTasks<MAX_TASKS)
+            {
+                cout<<"enter task description :";
+                cin.ignore();
+                getline(cin,tasks[numTasks].description);
+                tasks[numTasks].isDone=false;
+                numTasks++;
+                cout<<"Task Add."<<endl;
+            }
+            else{
+                cout<<"task list is full. cannot add more tasks";
+            }
+        }
+        else if(choice==2)
+        {
+            //list task
+            cout<<"Tasks:"<<endl;
+            for(int i=0;i<numTasks;i++)
+            {
+                cout<<(i+1)<<".";
+                if(tasks[i].isDone)
+                {
+                    cout<<"[x]";
+                }
+                else{
+                    cout<<"[]";
+                }
+                cout<<"taska[i].description"<<endl;
+            }
+        }
+        else if(choice ==3)
+        {
+            cout<<"enter the task number to mark as done;";
+            int taskNumber;
+            cin>>taskNumber;
+            if(taskNumber>0 && taskNumber<=numTasks)
+            {
+                tasks[taskNumber-1].isDone=true;
+                cout<<"task marked as done."<<endl;
+            }
+            else
+            {
+                cout<<"Invalid task number"<<endl;
+            }
+        }
+        else if(choice==4)
+        {
+            cout<<"goodbye!"<<endl;
+            break;
+        }
+        else{
+            cout<<"Invalid choice .please"<<endl;
+        }
+    }
+    return 0;
+
+}
