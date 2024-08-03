@@ -1,0 +1,39 @@
+#include<iostream>
+#include<math.h>
+using namespace std;
+    //calculator
+int main(){
+    int num1,num2;
+  int operation;
+   cout<<"select the operation:\n";
+    cout<<"1. addition\n2. substraction\n3. division\n4. multiplication"<<endl;
+   cin>>operation;
+   cout<<"enter two number";
+   cin>>num1>>num2;
+   switch(operation){
+    case 1:
+    cout<<"addition"<<endl;//for addition
+    cout<<num1<<"+"<<num2<<"="<<num1+num2;
+   break;
+
+    case 2:
+    cout<<"substraction"<<endl;//for substraction
+    cout<<num1<<"-"<<num2<<"="<<num1-num2;
+    break;
+
+    case 3:
+    cout<<"division"<<endl;//division
+    cout<<num1<<"/"<<num2<<"="<<num1/num2;
+    break;
+
+     case 4:
+    cout<<"multiplication"<<endl;//for multiplication
+    cout<<num1<<"*"<<num2<<"="<<num1*num2;
+    break;
+
+  default:
+  cout<<"error!operator is not correct";
+
+   }
+  return 0;
+}
